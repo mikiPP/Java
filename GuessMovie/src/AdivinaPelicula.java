@@ -34,7 +34,7 @@ public class AdivinaPelicula {
     }
 
     private String ElegirPelicula(String [] array){
-        int randomNumber = (int) (Math.random() * array.length) +1;
+        int randomNumber = (int) (Math.random() * array.length);
         return array[randomNumber]; }
 
 
@@ -49,7 +49,6 @@ public class AdivinaPelicula {
 
     private void BucleAdivinarPeli(String pelicula,String resolver){
         String letrasFalladas = "";
-        char [] array;
         int intentos = 10;
         Scanner entrada = new Scanner(System.in);
         System.out.println(resolver);
@@ -58,7 +57,6 @@ public class AdivinaPelicula {
         for (int i = 0;i < intentos;i++){
 
             System.out.printf("Tienes que adivinar la pelicula dispones de %d intentos\n",intentos-i);
-
             System.out.println("Elige una letra!!");
             String letra = entrada.nextLine();
             int posicion = pelicula.indexOf(letra);
@@ -87,7 +85,7 @@ public class AdivinaPelicula {
                 intentos = 0;
                 System.out.println(" ");
                 System.out.println("Muy bien has ganado!!");
-                System.out.printf("la pelicula es %s y has tardado %d intentos",pelicula,i+1);
+                System.out.printf("la pelicula es: %s y has tardado %d intentos",pelicula,i+1);
                 break;
 
             }
