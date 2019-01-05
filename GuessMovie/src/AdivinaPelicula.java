@@ -1,41 +1,35 @@
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class AdivinaPelicula {
 
     public void adivinarPelicula() throws Exception {
-        String[] Array = CrearArrayPeliculas();
-        String pelicula = ElegirPelicula(Array);
+        List films = CrearArrayPeliculas();
+        String pelicula = ElegirPelicula(films);
         String resolver = ConvertirStringEnGuiones(pelicula);
         BucleAdivinarPeli(pelicula,resolver);
     }
 
-    private String[] CrearArrayPeliculas()throws Exception{
+    private List CrearArrayPeliculas()throws Exception{
         File file = new File("movies.txt");
         Scanner scanner = new Scanner(file);
+        ArrayList films = new ArrayList();
 
-        String[] films ;
-        films = new String[26];
-        int index = 0;
 
 
         while (scanner.hasNextLine()){
             String line = scanner.nextLine();
-            films[index] = line;
-            index++;
+            films.add(line);
 
         }
-    return films;}
+        return films;}
 
-    public void ImprimirArray(String [] array){
-        for (int i =0; i < array.length ; i++){
-            System.out.println(array[i]);
-        }
-    }
 
-    private String ElegirPelicula(String [] array){
-        int randomNumber = (int) (Math.random() * array.length);
-        return array[randomNumber]; }
+    private String ElegirPelicula(List array){
+        int randomNumber = (int) (Math.random() * array.size());
+        return (String) array.get(randomNumber); }
 
 
     private String ConvertirStringEnGuiones(String convertir){
@@ -45,7 +39,7 @@ public class AdivinaPelicula {
             convertido += "_";
         }
 
-    return convertido;}
+        return convertido;}
 
     private void BucleAdivinarPeli(String pelicula,String resolver){
         String letrasFalladas = "";
@@ -97,4 +91,5 @@ public class AdivinaPelicula {
 
     }
 }
+
 
