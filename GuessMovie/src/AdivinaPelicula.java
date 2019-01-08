@@ -19,6 +19,7 @@ public class AdivinaPelicula {
 
 
 
+
         while (scanner.hasNextLine()){
             String line = scanner.nextLine();
             films.add(line);
@@ -53,35 +54,51 @@ public class AdivinaPelicula {
             System.out.printf("Tienes que adivinar la pelicula dispones de %d intentos\n",intentos-i);
             System.out.println("Elige una letra!!");
             String letra = entrada.nextLine();
+            letra = letra.toLowerCase();
             int posicion = pelicula.indexOf(letra);
 
+            if (letra.length() > 1){
+                if (letra.length() == pelicula.length()){
+                    if (letra.equalsIgnoreCase(pelicula)){
+                        System.out.println(" ");
+                        System.out.println("Muy bien has ganado!!");
+                        System.out.printf("la pelicula es: %s y has fallado %d letra(s)", pelicula, i + 1);
+                    }else {
+                        System.out.println("Has fallado!");
+                    }
+                }else {
+                    System.out.println("SOLO UNA LETRA!");
+                    System.out.println(resolver);
+                }
+            }else {
 
-            if (posicion != -1){
-                i--;
-                System.out.println("Has acertado esta letra!");
-                while (posicion !=  -1){
-                    String firstPart = resolver.substring(0, posicion);
-                    String lastPart = resolver.substring(posicion+1,resolver.length());
-                    resolver = firstPart + letra + lastPart;
-                    posicion = pelicula.indexOf(letra,posicion+1);
+                if (posicion != -1) {
+                    i--;
+                    System.out.println("Has acertado esta letra!");
+                    while (posicion != -1) {
+                        String firstPart = resolver.substring(0, posicion);
+                        String lastPart = resolver.substring(posicion + 1, resolver.length());
+                        resolver = firstPart + letra + lastPart;
+                        posicion = pelicula.indexOf(letra, posicion + 1);
+                    }
+
+
+                } else {
+                    letrasFalladas += letra + "," + " ";
+
                 }
 
+                if (resolver.contains("_")) {
+                    System.out.println(resolver);
+                    System.out.printf("Estas son las letras que has fallado!: %s\n", letrasFalladas);
+                } else {
+                    intentos = 0;
+                    System.out.println(" ");
+                    System.out.println("Muy bien has ganado!!");
+                    System.out.printf("la pelicula es: %s y has fallado %d letra(s)", pelicula, i + 1);
+                    break;
 
-            }else{
-                letrasFalladas += letra + "," + " ";
-
-            }
-
-            if (resolver.contains("_")){
-                System.out.println(resolver);
-                System.out.printf("Estas son las letras que has fallado!: %s\n",letrasFalladas);
-            }else {
-                intentos = 0;
-                System.out.println(" ");
-                System.out.println("Muy bien has ganado!!");
-                System.out.printf("la pelicula es: %s y has fallado %d letras",pelicula,i+1);
-                break;
-
+                }
             }
         }
         if (intentos == 10) {
@@ -91,5 +108,3 @@ public class AdivinaPelicula {
 
     }
 }
-
-
