@@ -79,7 +79,7 @@ public class AdivinaPelicula {
                 intentos = 0;
                 System.out.println(" ");
                 System.out.println("Muy bien has ganado!!");
-                System.out.printf("la pelicula es: %s y has tardado %d intentos",pelicula,i+1);
+                System.out.printf("la pelicula es: %s y has fallado %d letras",pelicula,i+1);
                 break;
 
             }
