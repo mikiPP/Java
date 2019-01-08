@@ -38,7 +38,7 @@ public class AdivinaElDado {
     }
     public double TirarDado(){
         int lados = 6;
-        double randomNumber = Math.random() * 6;
+        double randomNumber = Math.random() * lados;
         randomNumber ++;
 
         return randomNumber;
