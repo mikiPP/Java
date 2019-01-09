@@ -59,14 +59,14 @@ public class AdivinaPelicula {
             int posicion = pelicula.indexOf(letra);
 
             if (letra.length() > 1) {
-                if (letra.length() == pelicula.length()) {
+                if (letra.equalsIgnoreCase(pelicula) ) {
                     hasGanado = true;
                     break;
 
                 } else {
-                    //Si la longitud de letra es diferente al imput imagino que ha escrito mas de una letra sin querer por eso devuelvo esto
-                    System.out.println("SOLO UNA LETRA!");
-                    System.out.println(resolver); }
+                    letrasFalladas = AñadirLetrasFalladas(letrasFalladas,letra);
+                    System.out.println("Has fallado!!");
+                    HasFallado(resolver,letrasFalladas);}
 
             } else {
 
@@ -76,12 +76,12 @@ public class AdivinaPelicula {
                     resolver = BuscarLetrasRepetidas(posicion,resolver,letra,pelicula);
 
                 } else {
-                    letrasFalladas += letra + "," + " "; }
+                    System.out.println("Has fallado!!");
+                    letrasFalladas = AñadirLetrasFalladas(letrasFalladas,letra); }
 
                 if (resolver.contains("_")) {
                     //mientras haya un guion quiere decir que aun falta una letra por resolver
-                    System.out.println(resolver);
-                    System.out.printf("Estas son las letras que has fallado!: %s\n", letrasFalladas);
+                    HasFallado(resolver,letrasFalladas);
 
                 } else {
                     hasGanado = true;
@@ -116,7 +116,7 @@ public class AdivinaPelicula {
             resolver = firstPart + letra + lastPart;
             posicion = pelicula.indexOf(letra, posicion + 1); }
 
-         return resolver;}
+        return resolver;}
 
     private void HasGanado(){
 
@@ -131,5 +131,16 @@ public class AdivinaPelicula {
         System.out.printf("la pelicula era %s",pelicula);}
 
 
-}
+    private void HasFallado(String resolver, String letrasFalladas){
 
+        System.out.println(resolver);
+        System.out.printf("Estas son las letras que has fallado!: %s\n", letrasFalladas);
+    }
+
+    private String AñadirLetrasFalladas(String letrasFalladas,String letra){
+
+        letrasFalladas += letra + "," + " ";
+
+    return letrasFalladas;}
+
+}
