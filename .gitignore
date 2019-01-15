@@ -7,6 +7,36 @@
 # BlueJ files
 *.ctxt
 
+#Gradle
+*.gradle/
+*gradle/
+build.gradle
+gradlew
+gradlew.bat
+
+#IntelliJ IDEA
+*.idea/
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+#VSCode
+*.vscode/
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
+.vscode/extensions.json
+
+
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
