@@ -28,6 +28,7 @@ gradlew.bat
 *.zip
 *.tar.gz
 *.rar
+*.out
 
 #VSCode
 *.vscode/
