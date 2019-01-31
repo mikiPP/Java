@@ -2,7 +2,7 @@ import java.lang.String;
 
 public class ScoreCard {
 
-    /*--------------Variables de clase ---------------*/
+    /*-------------- Class variables ---------------*/
 
 
     private String specialRatings = "X/";
@@ -12,12 +12,12 @@ public class ScoreCard {
     private int ZERO = 0;
 
 
-    /*----------------Constructor---------------------*/
+    /*---------------- Builder ---------------------*/
 
     ScoreCard(){}
 
 
-    /*----------------Getters-------------------------*/
+    /*---------------- Getters and Setters -------------------------*/
 
     public String getSpecialRatings(){
         return specialRatings; }
@@ -33,11 +33,34 @@ public class ScoreCard {
 
     public int getSPARE(){
         return this.SPARE;}
+        
+    public int setSpare(String game,int position){
+        return this.getSPARE() - this.calculatePinsValue(game,position);
+    }    
 
-    /*------------------Metodoos-------------------------*/
+    /*------------------ Methods -------------------------*/
 
+    public boolean isStrike(String game,int position ){
 
-    public int calculateStrikeValue(String partida,int position){
+        if (game.charAt(position) == 'X'){
+            return true;
+
+        } else{
+            return false; }
+        }
+
+    public boolean isNumericalRaiting(String game,int position){
+
+        if (getSpecialRatings().indexOf(game.charAt(position)) == -1){
+            return true;
+
+        } else{
+            return false; }
+    }
+
+    /*----------------- Calculate Methods ----------------------*/
+
+    public int calculateStrikeValue(String game,int position){
 
         int score;
 
@@ -46,16 +69,20 @@ public class ScoreCard {
         try{
 
             for(int i = 1;i < 3;i++){
-                if (getSpecialRatings().indexOf(partida.charAt(position + i)) == -1){
-                    score += this.calculatePinsValue(partida,position+i);
+
+                if (this.isNumericalRaiting(game,position+i)){
+                    score += this.calculatePinsValue(game,position+i);
+
                 }else{
-                    if(partida.charAt(position + i)== 'X'){
+                    if(this.isStrike(game,position+i)){
                         score  += this.getSTRIKE();
+
                     }else{
-                        score += this.getSPARE() -  getNumericalRatings().indexOf(partida.charAt(position+i-1));
+                        score += this.setSpare(game,position+i-1);
                     }
                 }
             }
+
         }catch (StringIndexOutOfBoundsException e){
             return this.ZERO;}
 
@@ -64,68 +91,80 @@ public class ScoreCard {
     }
 
 
-    public int calculateSpareValue(String partida,int position){
+    public int calculateSpareValue(String game,int position){
         int score;
 
-        score = getSPARE() - getNumericalRatings().indexOf(partida.charAt(position-1));
+        score = this.setSpare(game,position-1);
+
         try{
-            if (getSpecialRatings().indexOf(partida.charAt(position + 1)) == -1){
-                score += this.calculatePinsValue(partida,position+1);;
+
+            if (this.isNumericalRaiting(game,position+1)){
+                score += this.calculatePinsValue(game,position+1);;
+
             }else{
                 score  += this.getSTRIKE();}
-        }catch (StringIndexOutOfBoundsException e){
-        ;}
-        finally {
-            return score; }
-        }
 
-    public  int calculatePinsValue(String partida,int posicion){
-        return  getNumericalRatings().indexOf(partida.charAt(posicion));
+        }catch (StringIndexOutOfBoundsException e){ ;}
+
+        finally {
+
+            return score; }
+    }
+
+    public  int calculatePinsValue(String game,int posicion){
+
+        return  this.getNumericalRatings().indexOf(game.charAt(posicion));
     }
 
 
-    public int calculateScore(String partida){
+    public int calculateLastThreeBalls(String game,int position){
+        int score;
+
+        if (this.isNumericalRaiting(game,position)) {
+            score = calculatePinsValue(game, position);
+
+        } else if (this.isStrike(game,position)){
+            score = this.getSTRIKE();
+
+        }else{
+            score = this.setSpare(game,position-1);
+        }
+
+        return score;}
+
+
+    public int calculateScore(String game){
+
         int finalScore = 0;
         int ball=0;
 
 
-        for (int i = 0;i<partida.length();i++) {
+        for (int i = 0;i<game.length();i++) {
+
             if (ball < 18) {
 
-                if (getSpecialRatings().indexOf(partida.charAt(i)) == -1) {
-                        finalScore += calculatePinsValue(partida, i);
-                        ball++;
+                if (this.isNumericalRaiting(game,i)) {
+                    finalScore += this.calculatePinsValue(game, i);
+                    ball++;
 
                 } else {
-                    if (partida.charAt(i) == 'X') {
-                            finalScore += calculateStrikeValue(partida, i);
-                            ball += 2;
+                    if (this.isStrike(game,i)) {
+                        finalScore += this.calculateStrikeValue(game, i);
+                        ball += 2;
 
                     } else {
-                            finalScore += calculateSpareValue(partida, i);
-                            ball ++;
+                        finalScore += this.calculateSpareValue(game, i);
+                        ball ++;
                     }
                 }
             }else{
-                finalScore += calculateLastThreeBalls(partida,i);
+                finalScore += this.calculateLastThreeBalls(game,i);
+                ball++;
             }
-           }
+        }
 
         return finalScore;}
 
 
-        public int calculateLastThreeBalls(String partida,int position){
-            int score;
 
-                if (getSpecialRatings().indexOf(partida.charAt(position)) == -1) {
-                    score = calculatePinsValue(partida, position);
-
-                } else if (partida.charAt(position) == '/'){
-                    score = getSPARE() - getNumericalRatings().indexOf(partida.charAt(position-1));
-                }else{
-                    score = getSTRIKE();
-                }
-
-
-        return score;}
 }
