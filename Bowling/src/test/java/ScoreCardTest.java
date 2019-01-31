@@ -74,7 +74,7 @@ public class ScoreCardTest {
         int total = 100;
         assertEquals(total, tarjeta.calculateScore(pins));
 
-       // two extra final rolls
+        // two extra final rolls
         pins = "9-9-9-9-9-9-9-9-9-X9-";
         total = 100;
 
@@ -129,8 +129,17 @@ public class ScoreCardTest {
         total = 131;
         assertEquals(total, tarjeta.calculateScore(pins));
 
-        pins = "8/549-XX5/53639/9/X";
-        total = 149;
+
+    }
+
+    @Test
+    public void TotalScoreSpareAndStrikeTest(){
+        /*In this Test i check how does my program work
+         *in the case that i have spares and strikes in a row
+        */
+
+        String pins = "8/549-XX5/53639/9/X";
+        int total = 149;
         assertEquals(total, tarjeta.calculateScore(pins));
 
         pins = "8/549-XX3453639/9/X";
@@ -141,7 +150,6 @@ public class ScoreCardTest {
         pins = "X5/X5/XX5/--5/X5/";
         total = 175;
         assertEquals(total, tarjeta.calculateScore(pins));
-
     }
 
 
