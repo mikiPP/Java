@@ -150,7 +150,30 @@ public class ScoreCardTest {
         pins = "X5/X5/XX5/--5/X5/";
         total = 175;
         assertEquals(total, tarjeta.calculateScore(pins));
+
+        // check strike at position -3
+        pins = "45454545XX9/9/X45";
+        total = 152;
+        assertEquals(total, tarjeta.calculateScore(pins));
+
+        // check strike at position -3
+        pins = "XX9/8/7/X----X33";
+        total = 136;
+        assertEquals(total, tarjeta.calculateScore(pins));
+
+
+        // check spare at position -3
+        pins = "2/X4/XX4/5/438/43";
+        total = 161;
+        assertEquals(total, tarjeta.calculateScore(pins));
+
+        // check spare at position -3
+        pins = "-8--8/XX--X3/X17";
+        total = 124;
+        assertEquals(total, tarjeta.calculateScore(pins));
     }
+
+
 
 
 }
