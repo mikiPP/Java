@@ -1,7 +1,7 @@
 # Java
 
 
-##There are some exercicies like:
+### There are some exercicies like:
 
 - AdivinaElNumero: When you run this program you can choose one range and you have to guess which number has been chosen randomly in this range.
 
