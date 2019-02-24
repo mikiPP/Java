@@ -1,0 +1,24 @@
+
+1a Historia de usuario
+Como creador del evento (Rick) quiero crear una clave para identificar a los usuarios
+
+2a Historia de usuario
+
+Rick quiere un metodo para poder ver por pantalla su direccion y su balance
+para poder visualizarlo
+
+3a Historia de usuario
+
+Rick quiere crear diferentes address para añadirlas al sistema y ver sus datos
+
+4a Historia de usuario
+Rick quiere un contrato inteligente para vender sus 100 entradas
+
+5a Historia de usuario
+Rick quiere crear una tabla para saber cuantas entradas ha vendido y el propietario
+
+6a historia de usuario
+Rick quiere añadir al propietario de las entradas para poder vendeerlas
+
+7a Historia de usuario
+Rick quiere vender las entradas para que la gente vaya al concierto
