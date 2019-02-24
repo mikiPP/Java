@@ -25,10 +25,8 @@ to certain areas of the island of mallorca.
 
 - Ezinium
 
-  Rick is going to organize a Los Ricknillos concert and wants to sell 100 tickets in
-   our enZinium platform.
-     - For this you will use an intelligent contract built on our platform.
-     - This contract will receive instructions on who to sell the tickets.
-     - The contract will store which users of the platform own the tickets.
-     - Each user has an address on the platform, from the
-     you manage your enZiniums and the tickets.
+  Rick is going to organize a Los Ricknillos concert and wants to sell 100 tickets in our enZinium platform.
+  - For this you will use an intelligent contract built on our platform.
+  - This contract will receive instructions on who to sell the tickets.
+  - The contract will store which users of the platform own the tickets.
+  - Each user has an address on the platform, from the you manage your enZiniums and the tickets.
