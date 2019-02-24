@@ -21,4 +21,14 @@
 - cotxox
 Class exercise, is the Dual programming exam of February 2017.
 We are going to build a prototype of the Cotxox application that allows managing the transfer of tourists from the airport
-to certain areas of the island of mallorca,
+to certain areas of the island of mallorca.
+
+- Ezinium
+
+  Rick va a organizar un concieto de Los Ricknillos y quiere poner a la venta 100 entradas en
+  nuestra plataforma enZinium.
+    - Para ello va a utilizar un contrato inteligente construido sobre nuestra plataforma.
+    - Este contrato recibira instrucciones sobre a quien vender las entradas.
+    - El contrato almacenara que usuarios/as de la plataforma poseen las entradas.
+    - Cada usuario/a dipone de una Address /direccion en la plataforma, desde la
+    que gestionar sus enZiniums y las entradas.
