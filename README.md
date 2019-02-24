@@ -25,10 +25,10 @@ to certain areas of the island of mallorca.
 
 - Ezinium
 
-  Rick va a organizar un concieto de Los Ricknillos y quiere poner a la venta 100 entradas en
-  nuestra plataforma enZinium.
-    - Para ello va a utilizar un contrato inteligente construido sobre nuestra plataforma.
-    - Este contrato recibira instrucciones sobre a quien vender las entradas.
-    - El contrato almacenara que usuarios/as de la plataforma poseen las entradas.
-    - Cada usuario/a dipone de una Address /direccion en la plataforma, desde la
-    que gestionar sus enZiniums y las entradas.
+  Rick is going to organize a Los Ricknillos concert and wants to sell 100 tickets in
+   our enZinium platform.
+     - For this you will use an intelligent contract built on our platform.
+     - This contract will receive instructions on who to sell the tickets.
+     - The contract will store which users of the platform own the tickets.
+     - Each user has an address on the platform, from the
+     you manage your enZiniums and the tickets.
