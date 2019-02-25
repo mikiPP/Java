@@ -110,12 +110,10 @@ public class TokenContract {
 
 
         require(this.balanceOf(getAddress().getPK()) > entradas);
+        removeEntries(this.getAddress().getPK(),entradas);
+        AddEntries(PK,entradas); }
 
-        Double balanceDueño = this.balanceOf(this.getAddress().getPK()) -entradas;
-        getBalances().replace(getAddress().getPK(),balanceDueño);
-        getBalances().put(PK,balanceOf(PK)+entradas); }
-
-        catch (Exception e){
+        catch (Exception noEntradas ){
 
         }
 
@@ -125,11 +123,10 @@ public class TokenContract {
         try {
 
 
-            require(this.balanceOf(PKVendedor) > entradas);
+            require(this.balanceOf(PKVendedor) >= entradas);
+            removeEntries(PKVendedor,entradas);
+            AddEntries(PKComprador,entradas);
 
-            Double balanceDueño = this.balanceOf(PKVendedor) - entradas;
-            getBalances().replace(PKVendedor, balanceDueño);
-            getBalances().put(PKComprador, balanceOf(PKComprador) + entradas);
         } catch (Exception noEntradas) {
 
         }
@@ -137,12 +134,11 @@ public class TokenContract {
     }
 
     public void require(Boolean condicion)throws Exception {
-        if (condicion) {
-
-        } else {
+        if (!condicion) {
             Exception noEntradas = new Exception();
             throw noEntradas;
-        }
+
+        } else { }
 
     }
     public void owners(){
@@ -193,7 +189,22 @@ public class TokenContract {
     }
 
 
+    public void removeEntries(PublicKey PKVendedor, Double entradas){
 
+        if ((getAddress().getPK().equals(PKVendedor))) {
+            getBalances().replace(getAddress().getPK(),this.balanceOf(this.getAddress().getPK()) -entradas);
+        }
+        else{
+
+            getBalances().replace(PKVendedor, this.balanceOf(PKVendedor) - entradas);
+        }
+    }
+
+
+    public void AddEntries(PublicKey PK,Double entradas){
+
+        getBalances().put(PK, balanceOf(PK) + entradas);
+    }
 
 
     }
