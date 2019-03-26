@@ -30,3 +30,7 @@ to certain areas of the island of mallorca.
   - This contract will receive instructions on who to sell the tickets.
   - The contract will store which users of the platform own the tickets.
   - Each user has an address on the platform, from the you manage your enZiniums and the tickets.
+  
+  
+  - Pluton Is A Planet
+Class exercise, that consist about calculate your own weight in each planet of Solar System
