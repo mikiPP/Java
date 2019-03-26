@@ -32,5 +32,5 @@ to certain areas of the island of mallorca.
   - Each user has an address on the platform, from the you manage your enZiniums and the tickets.
   
   
-  - Pluton Is A Planet
+- Pluton Is A Planet
 Class exercise, that consist about calculate your own weight in each planet of Solar System
